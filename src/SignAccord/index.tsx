@@ -19,9 +19,9 @@ interface SignAccordProps {
   /** 获取协议列表 */
   requestAccordList: () => Promise<AccordListType[]>;
   /** 获取协议图片 */
-  requestAccordImg: (accordItem: AccordListType) => Promise<string>;
+  requestAccordImg: (accord: AccordListType) => Promise<string>;
   /** 签署协议 */
-  requestSign: (params: AccordListType) => Promise<void | true | false>;
+  requestSign: (accord: AccordListType) => Promise<void | true | false>;
   /** 点击按钮的配置属性，同 antd */
   btnProps?: ButtonProps;
   btnText?: string;
@@ -53,7 +53,7 @@ const SignAccord: React.FC<React.PropsWithChildren<SignAccordProps>> = (
   /** 当前协议 */
   const [currentAccord, setCurrentAccord] = useState<AccordListType>();
 
-  const disabled =
+  const pending =
     requestAccordLoading || requestAccordImgLoading || requestSignLoading;
 
   const toggle = () => {
@@ -125,6 +125,8 @@ const SignAccord: React.FC<React.PropsWithChildren<SignAccordProps>> = (
     setRequestSignLoading(true);
     const result = await requestSign(currentAccord as AccordListType);
     setRequestSignLoading(false);
+    /** 签署成功之后重新获取select列表 */
+    beforeOpen();
     if (result === true) {
       message.success('签署成功');
     }
@@ -137,7 +139,7 @@ const SignAccord: React.FC<React.PropsWithChildren<SignAccordProps>> = (
   const selectOptions = useMemo(() => {
     const getLabelNode = ({ name, status }: Omit<AccordListType, 'id'>) => (
       <div>
-        {name}
+        {name}{' '}
         {status === AccordSignStatus.SIGNED && <Tag color="green">已签署</Tag>}
       </div>
     );
@@ -150,19 +152,19 @@ const SignAccord: React.FC<React.PropsWithChildren<SignAccordProps>> = (
   const titleNode = modalTitle || '协议签署';
 
   const footerNode = (
-    <div>
+    <>
       {currentAccord?.status === AccordSignStatus.WAITSIGN ? (
         <Button
           loading={requestSignLoading}
           onClick={handleSign}
-          disabled={disabled}
+          disabled={pending}
         >
           签署
         </Button>
       ) : (
         <Button onClick={handleNext}>下一个</Button>
       )}
-    </div>
+    </>
   );
 
   return (
@@ -185,13 +187,13 @@ const SignAccord: React.FC<React.PropsWithChildren<SignAccordProps>> = (
       >
         <Select<string>
           value={currentAccord?.id}
-          disabled={disabled}
+          disabled={pending}
           style={{ width: 200 }}
           options={selectOptions}
           onChange={handleChangeAccord}
           placeholder="请选择"
         />
-        <Spin tip="Loading" spinning={requestAccordImgLoading}>
+        <Spin tip="Loading" spinning={pending}>
           <div className="sign-accord-content">
             {accordImg && (
               <img src={accordImg} alt="协议图片" title="协议图片" />
