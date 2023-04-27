@@ -7,9 +7,11 @@ export default () => {
       title: '列头1',
       dataIndex: 'formKey1',
       formItem: {
-        type: 'input',
-        props: {
-          placeholder: '请输入',
+        component: {
+          type: 'input',
+          props: {
+            placeholder: '请输入',
+          },
         },
       },
       render: (value, record) => record.formKey1,

@@ -1,4 +1,4 @@
-# PreviewImage
+# z-PreviewImage
 
 ### 默认使用(同步)
 
