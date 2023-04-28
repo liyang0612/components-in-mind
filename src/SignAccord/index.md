@@ -6,7 +6,6 @@
 import { SignAccord } from 'component-in-mind';
 
 export default () => {
-  const [test, setTest] = React.useState(0);
   let mockData = [
     { id: '1', name: '协议1', status: 'WAITSIGN' },
     { id: '2', name: '协议2', status: 'WAITSIGN' },
@@ -21,7 +20,7 @@ export default () => {
         updateDataFn && updateDataFn();
         setTimeout(() => {
           resolve();
-        }, 2000);
+        }, 500);
       });
     return fn;
   };
@@ -39,7 +38,6 @@ export default () => {
   const requestSign = async (accordParams) => {
     console.log('协议相关数据: ', accordParams);
     await createRequestMock(() => {
-      setTest(1);
       const newData = [];
       mockData.forEach((item) => {
         if (item.id === accordParams.id) {

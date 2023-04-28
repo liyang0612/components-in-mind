@@ -1,5 +1,7 @@
 .sign-accord-content {
   width: 100%;
+  height: calc(100vh - 280px);
+  overflow: auto;
 }
 
 .sign-accord-content img {

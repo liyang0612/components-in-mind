@@ -125,6 +125,7 @@ const SignAccord: React.FC<React.PropsWithChildren<SignAccordProps>> = (
     setRequestSignLoading(true);
     const result = await requestSign(currentAccord as AccordListType);
     setRequestSignLoading(false);
+    setCurrentAccord({ ...currentAccord, status: AccordSignStatus.SIGNED } as AccordListType);
     /** 签署成功之后重新获取select列表 */
     beforeOpen();
     if (result === true) {
@@ -162,7 +163,7 @@ const SignAccord: React.FC<React.PropsWithChildren<SignAccordProps>> = (
           签署
         </Button>
       ) : (
-        <Button onClick={handleNext}>下一个</Button>
+        <Button loading={requestAccordImgLoading} onClick={handleNext}>下一个</Button>
       )}
     </>
   );
