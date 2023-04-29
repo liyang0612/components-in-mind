@@ -1,4 +1,4 @@
-# component-in-mind
+# components-in-mind
 
 ———— 来自我脑海中的组件。
 

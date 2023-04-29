@@ -19,4 +19,4 @@ features:
     description: Put ! description here
 ---
 
-component-in-mind
+components-in-mind

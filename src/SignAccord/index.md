@@ -3,7 +3,7 @@
 ### 默认使用
 
 ```jsx
-import { SignAccord } from 'component-in-mind';
+import { SignAccord } from 'components-in-mind';
 
 export default () => {
   let mockData = [

@@ -11,8 +11,8 @@
 ```jsx
 import React from 'react';
 import { Form, Input, Button, message } from 'antd'
-import { Crud } from 'component-in-mind';
-import type { CrudColumn } from 'component-in-mind';
+import { Crud } from 'components-in-mind';
+import type { CrudColumn } from 'components-in-mind';
 
 export default () => {
 

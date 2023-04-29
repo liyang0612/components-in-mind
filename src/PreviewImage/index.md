@@ -3,7 +3,7 @@
 ### 默认使用(同步)
 
 ```jsx
-import { PreviewImage } from 'component-in-mind';
+import { PreviewImage } from 'components-in-mind';
 
 export default () => (
   <PreviewImage url="https://nwzimg.wezhan.cn/contents/sitefiles2061/10308347/images/40769792.png" />
@@ -13,7 +13,7 @@ export default () => (
 ### 异步使用
 
 ```jsx
-import { PreviewImage } from 'component-in-mind';
+import { PreviewImage } from 'components-in-mind';
 
 export default () => {
   const mockFetch = () =>

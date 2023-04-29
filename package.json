@@ -1,5 +1,5 @@
 {
-  "name": "component-in-mind",
+  "name": "components-in-mind",
   "version": "0.0.1",
   "description": "A react library developed with dumi",
   "license": "MIT",
@@ -27,18 +27,18 @@
     ]
   },
   "lint-staged": {
-    "*.{md,json}": [
+    "src/**/*.{md,json}": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
-    "*.{css,less}": [
+    "src/**/*.{css,less}": [
       "stylelint --fix",
       "prettier --write"
     ],
-    "*.{js,jsx}": [
+    "src/**/*.{js,jsx}": [
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "eslint --fix"
     ]
   },
@@ -54,6 +54,7 @@
     "dumi": "^2.0.2",
     "eslint": "^8.23.0",
     "father": "^4.1.0",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
