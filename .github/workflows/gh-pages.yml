@@ -5,22 +5,22 @@ on:
     branches:
       - master # default branch
 
+permissions:
+  contents: write
 jobs:
-  deploy:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with: 
-          node-version: '16.14.2'
-      - run: yarn
-      - run: npm run docs:build
-      - name: Deploy
-        uses: actions/deploy-pages@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          yarn
+          npm run docs:build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.CIM_TOKEN }}
-          folder: docs-list
-          artifact_name: deply_site
+          folder: docs-list # The folder the action should deploy.
