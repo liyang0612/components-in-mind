@@ -13,8 +13,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with: 
-          node-version: '16'
-      - run: npm install
+          node-version: '16.14.2'
+      - run: yarn
       # 文档编译命令，如果是 react 模板需要修改为 npm run docs:build
       - run: npm run docs:build
       - name: Deploy
