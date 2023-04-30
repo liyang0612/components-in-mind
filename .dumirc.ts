@@ -2,8 +2,8 @@ const path = require('path');
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  base: '.',
-  publicPath: '/components-in-mind/',
+  base: '/docs-dist/',
+  publicPath: '/docs-dist/',
   alias: {
     'components-in-mind': path.resolve(__dirname, '/src')
   },
