@@ -22,9 +22,5 @@ jobs:
         uses: actions/deploy-pages@v2
         with:
           token: ${{ secrets.CIM_TOKEN }}
-          branch: gh-pages
           folder: docs-list
-          clean: true
           artifact_name: deply_site
-        env:
-          GITHUB_TOKEN: ${{ secrets.CIM_TOKEN }}
