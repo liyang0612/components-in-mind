@@ -24,4 +24,4 @@ jobs:
           folder: docs-list
           clean: true
         env:
-          ACTIONS_ID_TOKEN_REQUEST_URL: https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runners/token
+          GITHUB_TOKEN: ${{ secrets.CIM_TOKEN }}
