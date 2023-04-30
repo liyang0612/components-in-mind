@@ -27,6 +27,6 @@ jobs:
         with:
           repo: liyang0612/components-in-mind
           target_branch: gh-pages
-          build_dir: docs-dist
+          build_dir: docs-list
         env:
           github_token: ${{ secrets.CIM_TOKEN }}
