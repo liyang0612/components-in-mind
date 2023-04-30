@@ -25,5 +25,6 @@ jobs:
           branch: gh-pages
           folder: docs-list
           clean: true
+          artifact_name: deply_site
         env:
           GITHUB_TOKEN: ${{ secrets.CIM_TOKEN }}
