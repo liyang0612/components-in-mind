@@ -79,3 +79,9 @@ export default () => {
   </Form>;
 };
 ```
+
+### API
+
+| Name    | Description | Type                            | Default |
+| ------- | ----------- | ------------------------------- | ------- |
+| columns | 列配置      | CrudColumns&lt;RecordType&gt;[] | []      |

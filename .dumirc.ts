@@ -9,6 +9,6 @@ export default defineConfig({
   },
   outputPath: 'docs-dist',
   themeConfig: {
-    name: 'component',
+    name: 'cim',
   },
 });
