@@ -1,4 +1,4 @@
-# SignAccord
+# SignAccord 组件
 
 ### 默认使用
 
@@ -63,16 +63,16 @@ export default () => {
 
 ### API
 
-| Name              | Description      | Type                                                                      | Default          |
-| ----------------- | ---------------- | ------------------------------------------------------------------------- | ---------------- |
-| requestAccordList | 获取协议列表     | () => Promise&lt;AccordListType[]&gt;                                     |                  |
-| requestAccordImg  | 获取协议内容图片 | (accord: AccordListType) => Promise&lt;字符串类型&gt;                     |
-| requestSign       | 签署协议         | (accord: AccordListType) => Promise&lt;void &Iota; true &Iota; false&gt;; |
-| btnProps          | 点击按钮属性     | 同 antd Button 属性                                                       | { type: 'link' } |
-| btnText           | 按钮文字         | string                                                                    | 签署             |
-| modalTitle        | 弹窗的 title     | string                                                                    | 签署协议         |
+| Name              | Description      | Type                                                                                                                      | Default          |
+| ----------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| requestAccordList | 获取协议列表     | <font color="#c41d7f">() => Promise&lt;[AccordListType](#accordlisttype)[]&gt;</font>                                     |                  |
+| requestAccordImg  | 获取协议内容图片 | <font color="#c41d7f">(accord: [AccordListType](#accordlisttype)) => Promise&lt;字符串类型&gt; </font>                    |
+| requestSign       | 签署协议         | <font color="#c41d7f">(accord: [AccordListType](#accordlisttype)) => Promise&lt;void &Iota; true &Iota; false&gt;;</font> |
+| btnProps          | 点击按钮属性     |                                                                                                                           | { type: 'link' } |
+| btnText           | 按钮文字         | <font color="#c41d7f">string</font>                                                                                       | 签署             |
+| modalTitle        | 弹窗的 title     | <font color="#c41d7f">string </font>                                                                                      | 签署协议         |
 
-#### AccordListType
+#### <span id="accordlisttype">AccordListType</span>
 
 ```
 interface AccordListType {

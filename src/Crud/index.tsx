@@ -40,7 +40,7 @@ export type CrudColumns<T> = CrudColumnExtra & ColumnProps<T>;
 
 interface CrudProps<RecordType> {
   /** 默认数据 */
-  defaultDataSource?: RecordType[],
+  defaultValue?: RecordType[],
   /** 列集合 */
   columns: CrudColumns<RecordType>[];
   /** 支持受控组件；可作为form组件使用 */
@@ -52,7 +52,7 @@ interface CrudProps<RecordType> {
 function Crud<RecordType>(
   props: React.PropsWithChildren<CrudProps<RecordType>>,
 ) {
-  const { columns, defaultDataSource = [], value = [], onChange = () => {} } = props;
+  const { columns, defaultValue = [], value = [], onChange = () => {} } = props;
   const isInitRef = useRef(true);
   const [form] = Form.useForm();
   const [visible, setVisible] = useState(false);
@@ -66,8 +66,8 @@ function Crud<RecordType>(
   }, [value])
 
   // 默认值只赋值一次
-  if (!value && isInitRef.current && defaultDataSource.length) {
-    database.setData(database.initData(defaultDataSource));
+  if (!value && isInitRef.current && defaultValue.length) {
+    database.setData(database.initData(defaultValue));
     isInitRef.current = false;
   }
 

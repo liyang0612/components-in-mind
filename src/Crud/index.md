@@ -1,4 +1,4 @@
-## Crud
+# Crud 组件
 
 增删查改为一体的组件，多应用于表单项。
 
@@ -6,7 +6,7 @@
 - 直接作为表单项，直接通过 form 拿到该字段下的数据
 - 在一些复杂表单的时候应用较多
 
-## 基本使用（前端 Crud）
+### 基本使用（前端 Crud）
 
 ```jsx
 import React from 'react';
@@ -82,6 +82,34 @@ export default () => {
 
 ### API
 
-| Name    | Description | Type                            | Default |
+#### Crud 组件属性
+
+| Name     | Description            | Type                                        | Default          |
+| -------- | ---------------------- | ------------------------------------------- | ---------------- |
+| columns  | 列配置                 | [CrudColumns](#crudcolumns)&lt;T&gt;[]      | []               |
+| value    | 受控的值               | object[]                                    | []               |
+| onChange | 新增、删除、更新时出发 | <font color="#c41d7f">function(val) => void | () => {} </font> |
+
+#### <span id="crudcolumns">CrudColumns</span>
+
+CrudColumns 继承自 antd 的 ColumnProps，以下为新扩展的属性，其余属性和 ColumnProps 一致。
+
+| Name         | Description | Type                                 | Default |
+| ------------ | ----------- | ------------------------------------ | ------- |
+| formItem     | 表单项属性  | [FormItemType](#formitemtype)        |         |
+| hideColumn   | 隐藏列      | <font color="#c41d7f">boolean</font> | false   |
+| hideFormItem | 隐藏表单项  | <font color="#c41d7f">boolean</font> | false   |
+
+#### <span id="formitemtype">FormItemType</span>
+
+FormItemType 继承自 antd 的 FormItemProps，暂时只扩展了一个属性
+| Name | Description | Type | Default |
 | ------- | ----------- | ------------------------------- | ------- |
-| columns | 列配置      | CrudColumns&lt;RecordType&gt;[] | []      |
+| component | 表单项组件类型 | [object](#object) | |
+
+#### <span id="object">object</span>
+
+| Name  | Description            | Type                                          | Default |
+| ----- | ---------------------- | --------------------------------------------- | ------- |
+| type  | 表单项组件类型         | <font color="#c41d7f">'select'/'input'</font> | 'input' |
+| props | SelectProps/InputPorps |
